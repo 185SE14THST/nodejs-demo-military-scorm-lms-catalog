@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="project">
+<head>
+  <title>ng-demo-catalog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap Requirements -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/starter-template.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+<!-- Font Awsome -->
+<script src="assets/js/a96b863fd6.js"></script>
+    
+<!-- Application Requirements -->
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular-route.min.js"></script>
+    <script src="assets/js/angular-resource.min.js"></script>
+    <script src="assets/js/angular-mocks.js"></script>
+<!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+    
+  <body ng-cloak ng-controller="mainController">
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#/">{{ companyDetails.appName }}</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+      
+      <!-- content: start -------------------------------------------------------------------------->
+      <div class="container-fluid">
+          <div class="starter-template">
+            <h1>SCORM Compliant Catalogs</h1>
+              <p class="text-xs-center"><img class="img-fluid m-x-auto" src="assets/img/seals.png" alt="Army Marines Navy Airforce Coast Guard" width="450px"></p>
+              <p class="lead">SCORM is the de facto industry standard for interoperability and SCORM<br> conformance is required for most military e-learning RFPs. Find or add yours.</p>
+              <div class="">
+                  <form class="form-inline">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="searchInput" size="55" placeholder="Aurora Pilot Manual (DARPA ) or TMID">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Search</button> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addCourse">Add to LMS</button><br>
+                </form>
+              </div>
+	       </div>
+      </div>
+<!-- Results -->
+          <div class="card-deck-wrapper" ng-controller="applicationController1">
+              <!-- Results group: start -->
+                  <div class="card-deck">
+                      <product-list product-object="p" ng-repeat="p in products">Loading...</product-list>
+                  </div>
+              <!-- Results group: end -->
+          </div>
+
+      <!-- add modal: begin -->
+          <div id="addCourse" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addCourseLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="gridModalLabel">Add A New Course</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div class="container-fluid bd-example-row">
+                              <!-- form: begin -->
+                              <form>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Training Manual Identifier</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="TM-50-257-35-50">
+                                      <small id="tmidHelp" class="form-text text-muted">Refer to the military code of standards.</small>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleDescription">Brief description</label>
+                                      <textarea class="form-control" id="exampleTextarea" rows="3" maxlength="140"></textarea>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleSelect1">Branch</label>
+                                      <select class="form-control" id="exampleSelect1">
+                                          <option>Air Force</option>
+                                          <option>Army</option>
+                                          <option>Coast Guard</option>
+                                          <option>Navy</option>
+                                          <option>Marines</option>
+                                      </select>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputFile">Image upload</label>
+                                      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                      <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                  </div>
+                              </form>
+                              <!-- form: end -->
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      <!-- modal: end -->
+      <!-- view modal: begin -->
+          <div id="viewCourse" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="viewCourseLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="gridModalLabe2">View Course</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div id="product" class="container-fluid bd-example-row">
+                              <!-- product: begin -->
+                              ...
+                              <!-- form: end -->
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Register</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      <!-- modal: end -->
+
+      <!-- content: end -------------------------------------------------------------------------->
+<!-- Mandatory -->
+      <script>$('.grid').masonry({
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: 200
+      });</script>
+
+<!-- Application Configuration -->
+    <script src="assets/js/application.js"></script>
+    <script src="assets/js/routes.js"></script>
+    <script src="assets/js/values.js"></script>
+    <script src="assets/js/services.js"></script>
+    <script src="assets/js/controllers.js"></script>
+    <script src="assets/js/directives.js"></script>
+    
+
+<!-- Application Customizations -->
+    <script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
