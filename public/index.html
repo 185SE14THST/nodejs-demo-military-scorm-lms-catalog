@@ -59,13 +59,14 @@
 	       </div>
       </div>
 <!-- Results -->
-          <div class="card-deck-wrapper" ng-controller="applicationController1">
-              <!-- Results group: start -->
-                  <div class="card-deck">
-                      <product-list product-object="p" ng-repeat="p in products">Loading...</product-list>
-                  </div>
-              <!-- Results group: end -->
-          </div>
+
+        <!-- Results group: start -->
+            <div class="container-fluid col-md-6 offset-md-3" ng-controller="applicationController1">
+                <ul class="media-list">
+                    <product-list product-object="p" ng-repeat="p in products">Loading...</product-list>
+                </ul>
+            </div>
+        <!-- Results group: end -->
 
       <!-- add modal: begin -->
           <div id="addCourse" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addCourseLabel" aria-hidden="true">

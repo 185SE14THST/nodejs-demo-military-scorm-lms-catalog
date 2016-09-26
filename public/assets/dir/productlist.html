@@ -1,10 +1,15 @@
-<div class="card col-lg-3" data-toggle="modal" data-target="#viewCourse" data-tmid="{{ productObject.tmid }}">
-    <a href="{{ productObject.tmid }}" onclick="getProdocut();">
-        <img class="card-img-top img-fluid" src="assets/img/{{ productObject.img }}.jpg" alt="{{ productObject.tmid }}">
-    </a>
-    <div class="card-block">
-        <h5 class="card-title">{{ productObject.tmid }}</h5>
-        <p class="card-text">{{ productObject.description }}</p>
-        <p class="card-text"><small class="text-muted">{{ productObject.branch }} | ver: {{ productObject.version }} ({{ productObject.publisher }}) | Length: {{ productObject.modules.hours }}</small></p>
+<li class="media" >
+    <div class="media-left">
+        <a href="#{{ productObject.tmid }}">
+            <img class="media-object img-thumbnail" style="max-width: 150px;" src="assets/img/{{ productObject.img }}.jpg" alt="{{ productObject.tmid }}">
+        </a>
     </div>
-</div>
+    <div class="media-body">
+        <h5 class="media-heading"><a href="#{{ productObject.tmid }}">{{ productObject.tmid }}</a><small> ({{ productObject.branch }})</small></h5>
+        <p>
+            {{ productObject.description }}
+        <br />
+            <small class="text-muted">Version: {{ productObject.version }} by {{ productObject.publisher }} | Length: {{ productObject.modules.hours }} | Credits: {{ productObject.modules.credits }} <br></small>
+        </p>
+    </div>
+</li>
