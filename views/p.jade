@@ -1,0 +1,14 @@
+﻿extends layout
+
+block content
+
+  h1= title
+  p Welcome to #{title}
+  p This is some text #{subtitle}
+
+  div(class="movie-card", id="oceans-11")
+  h1(class="movie-title") #{title}
+  img(src="assets/img/1009.jpg", class="img-fluid")
+  ul(class="genre-list")
+    li #{subtitle}
+    li Thriller

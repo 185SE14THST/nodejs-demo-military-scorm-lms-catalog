@@ -1,6 +1,19 @@
 <li class="media" >
     <div class="media-left">
-        <a data-toggle="modal" data-target="#viewCourse" data-title="{{ productObject.tmid }}" data-id="{{ productObject._id }}" data-backdrop="static" href="#{{ productObject.tmid }}" onclick="viewCourse();">
+        <a data-toggle="modal" 
+           data-target="#viewCourse" 
+           data-title="{{ productObject.tmid }}" 
+           data-id="{{ productObject._id }}" 
+           data-d="{{ productObject.description }}" 
+           data-i="{{ productObject.img }}" 
+           data-b="{{ productObject.branch }}" 
+           data-p="{{ productObject.publisher }}" 
+           data-r="{{ productObject.released }}" 
+           data-v="{{ productObject.version }}" 
+           data-h="{{ productObject.modules.hours }}" 
+           data-c="{{ productObject.modules.credits }}" 
+           data-backdrop="static" href="#{{ productObject.tmid }}" 
+           onclick="viewCourse();">
             <img class="media-object img-thumbnail" style="max-width: 150px;" src="assets/img/{{ productObject.img }}.jpg" alt="{{ productObject.tmid }}">
         </a>
     </div>

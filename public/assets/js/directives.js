@@ -7,15 +7,16 @@
 * Date:             2016-09-19
 */
 
-project.directive('productList', function() {
-	return {
-		restrict: 'AECM',
-		templateUrl: 'assets/dir/productlist.html',
-		replace: true, 
-		scope: { 
-			productObject: "=", 
+project.directive('productList', function () {
+    return {
+        restrict: 'AECM',
+        templateUrl: 'assets/dir/productlist.html',
+        replace: true, 
+        scope: {
+            productObject: "=", 
 			
-		}, 
-	};
+        }, 
+    };
 });
+
 

@@ -34,7 +34,7 @@
           <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/about">About</a>
+          <a class="nav-link" href="/#about">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#/contact">Contact</a>
@@ -129,8 +129,43 @@
                       <div class="modal-body">
                           <div id="product" class="container-fluid bd-example-row">
                               <!-- product: begin -->
-                              ...
-                              <!-- form: end -->
+                              <div class="container">
+                                  <div class="row">
+                                      <div class="col-xs">
+                                          <p class="modal-i"></p>
+                                          <blockquote class="blockquote">
+                                              <p class="m-b-0 modal-d">Description.</p>
+                                              <footer class="blockquote-footer modal-b">Branch <cite title="Source Title">Source Title</cite></footer>
+                                          </blockquote>
+                                      </div>
+                                  </div>
+                                      <div class="row">
+
+                                          <table class="table table-hover table-sm">
+                                              <thead>
+                                                  <tr>
+                                                      <th>Distribution</th>
+                                                      <th>Lesson Details</th>
+                                                      <th>Feedback</th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  <tr>
+                                                      <td class="modal-p">Publisher</td>
+                                                      <td class="modal-c">Credit</td>
+                                                      <td>**** / 5</td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td class="modal-r">Released</td>
+                                                      <td class="modal-h">Hours</td>
+                                                      <td>@fat</td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+
+                                      </div>
+                              </div>
+                              <!-- product: end -->
                           </div>
                       </div>
                       <div class="modal-footer">
@@ -144,19 +179,35 @@
       <script>
           var viewCourse = function () {
               $('#viewCourse').on('show.bs.modal', function (e) {
-                  // alert('Hello world');
                   var link = $(e.relatedTarget); // Button that triggered the modal
                   var title = link.data('title'); // Extract info from data-* attributes
                   var id = link.data('id');
+                  var description = link.data('d');
+                  var img = link.data('i');
+                  var branch = link.data('b');
+                  var publisher = link.data('p');
+                  var released = link.data('r');
+                  var version = link.data('v');
+                  var credit = link.data('c');
+                  var hours = link.data('h');
                   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                  //1 Call AJAX to http://localhost:1337/products/
+                  //2 Return as Var to String
                   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                   var modal = $(this);
                   modal.find('.modal-title').text('Training Manual: ' + title);
-                  //modal.find('.modal-body input').val(title);
-                  modal.find('.modal-body').html('<iframe src="products/'+ id +'" frameborder="0" width="100%" height="300"></iframe>')
-              })
+                  modal.find('.modal-id').text(id);
+                  modal.find('.modal-d').text(description);
+                  modal.find('.modal-i').html('<img class="img-fluid modal-i" src="assets/img/'+img+'.jpg" />');
+                  modal.find('.modal-b').text(branch);
+                  modal.find('.modal-p').text(publisher);
+                  modal.find('.modal-r').text(released);
+                  modal.find('.modal-v').text(version);
+                  modal.find('.modal-c').text(credit + ' credits');
+                  modal.find('.modal-h').text(hours + ' hrs.');
+                  //*modal.find('.modal-body').html('<iframe src="products/'+id+'" frameborder="0" width="100%" height="300"></iframe>')
+              }) 
           }
-
       </script>
       
 

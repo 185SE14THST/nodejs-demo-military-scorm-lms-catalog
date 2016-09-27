@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="routes\catalog.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\products.js" />
     <Compile Include="bin\www" />
@@ -42,6 +43,8 @@
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\error.jade" />
+    <Content Include="views\p.html" />
+    <Content Include="views\p.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
